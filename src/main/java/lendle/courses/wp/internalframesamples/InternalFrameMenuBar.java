@@ -39,6 +39,27 @@ public class InternalFrameMenuBar {
         //add menuitem
         //create new internalframe when the item is clicked
         
+        JMenuBar jMenuBar=new JMenuBar();
+        frame.setJMenuBar(jMenuBar); 
+        JMenu menu=new JMenu("Edit");
+        jMenuBar.add(menu); //menu放到menuBar
+        JMenuItem item =new JMenuItem("Add");
+        menu.add(item); //item加到menu
+        item.addActionListener(new ActionListener(){ //若按下按鈕
+            @Override
+            public void actionPerformed(ActionEvent e){
+                JInternalFrame jInternalFrame = new JInternalFrame();
+                frame.add(jInternalFrame); //把internal放desjtop pane
+                jInternalFrame.setSize(300,300);
+                jInternalFrame.setVisible(true);
+                jInternalFrame.setMaximizable(true);
+                jInternalFrame.setIconifiable(true);  //放大縮小
+                jInternalFrame.setResizable(true);//可以自訂大小
+                jInternalFrame.setClosable(true); //可關閉視窗
+                jInternalFrame.setLocation(desktopPane.getAllFrames().length*10,desktopPane.getAllFrames().length*10); //視窗不重疊
+            }
+        });
+        
         ////////////////////////////
         frame.setVisible(true);
     }
