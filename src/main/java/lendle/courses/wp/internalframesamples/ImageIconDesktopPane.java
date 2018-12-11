@@ -30,7 +30,10 @@ public class ImageIconDesktopPane extends JDesktopPane{
         }
     }
     //override paintComponent to draw scaled image
-    
+    protected void paintComponent(Graphics g){
+    super.paintComponent(g);
+    g.drawImage(image, 0, 0,getWidth(),getHeight(), this);
+    } //
     ///////////////////////////////////////////////
     
 }
