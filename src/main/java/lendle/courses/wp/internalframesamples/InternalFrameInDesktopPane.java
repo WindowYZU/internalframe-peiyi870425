@@ -33,6 +33,18 @@ public class InternalFrameInDesktopPane {
         //create a desktoppane
         //add internalFrame to it
         //make it visible
+        JDesktopPane jDesktopPane = new JDesktopPane();
+        frame.setContentPane(jDesktopPane);
+         for(int i=0;i<10;i++){  //多個視窗
+            JInternalFrame jInternalFrame = new JInternalFrame();
+            frame.add(jInternalFrame); //把internal放desjtop pane
+            jInternalFrame.setSize(300,300);
+            jInternalFrame.setVisible(true);
+            jInternalFrame.setMaximizable(true);
+            jInternalFrame.setIconifiable(true);  //放大縮小
+            jInternalFrame.setResizable(true);//可以自訂大小
+            jInternalFrame.setClosable(true); //可關閉視窗
+        }
         
         /////////////////////////////////
         frame.setVisible(true);
